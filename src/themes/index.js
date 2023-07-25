@@ -8,4 +8,3 @@ export default {
       shadows: "rgb(0 0 0 / 14%)",
     },
   };
-  

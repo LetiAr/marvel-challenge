@@ -1,13 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+import SearchBar from "./components/SearchBar";
+import { createGlobalStyle } from "styled-components";
+import themes from "./themes";
+import { GlobalStateProvider } from "./store";
+import { MainContainer } from "./components/layout/MainContainer";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: ${themes.colors.font};
+    background-color: ${themes.colors.darkBg};
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+`;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <GlobalStateProvider>
+      <GlobalStyle whiteColor />
+      <SearchBar />
+      <MainContainer>
+        <RouterProvider router={router} />
+      </MainContainer>
+    </GlobalStateProvider>
   </React.StrictMode>
 );
 
