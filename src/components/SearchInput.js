@@ -5,6 +5,7 @@ import themes from "../themes";
 import { useContext, useEffect, useState } from "react";
 import { searchCharacters } from "../api";
 import { GlobalStateContext } from "../store";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Container = styled.div`
   display: grid;
@@ -25,14 +26,20 @@ const SearchInput = styled.input`
 `;
 
 export default function ({ className }) {
-  const [query, setQuery] = useState("");
   const { setSearchResult } = useContext(GlobalStateContext);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("character") ?? "");
 
   useEffect(() => {
     const timer = setTimeout(async () => {
       if (query) {
         const result = await searchCharacters(query);
         setSearchResult(result.data.results);
+        navigate({
+          pathname: "/search",
+          search: "?character=" + encodeURIComponent(query),
+        });
       } else {
         setSearchResult([]);
       }
