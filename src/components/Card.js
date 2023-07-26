@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import themes from "../themes";
 import AddToFavs from "./AddToFavs";
+import { useContext } from "react";
+import { GlobalStateContext } from "../store";
 
 const Container = styled.article`
   position: relative;
   border-radius: 5px;
   overflow: hidden;
+  cursor: pointer;
 `;
 
 const Name = styled.h1`
@@ -49,16 +52,25 @@ const AddToFavsContainer = styled.div`
   padding: 15px;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
 `;
 
-export default function ({ name, thumbnail }) {
+export default function ({ character }) {
+  const { setCharacterModal } = useContext(GlobalStateContext);
+
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        setCharacterModal(character);
+      }}
+    >
       <AddToFavsContainer>
-        <AddToFavs />
+        <AddToFavs character={character} />
       </AddToFavsContainer>
-      <Image src={`${thumbnail.path}.${thumbnail.extension}`} />
-      <Name>{name}</Name>
+      <Image
+        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+      />
+      <Name>{character.name}</Name>
     </Container>
   );
 }
