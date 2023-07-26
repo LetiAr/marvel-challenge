@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { RouterProvider } from "react-router-dom";
-import router from "./router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import { createGlobalStyle } from "styled-components";
 import themes from "./themes";
 import { GlobalStateProvider } from "./store";
 import { MainContainer } from "./components/layout/MainContainer";
+import Home from "./views/Home";
+import Search from "./views/Search";
+import Favorites from "./views/Favorites";
+import Modal from "./components/Modal";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -24,9 +27,16 @@ root.render(
   <React.StrictMode>
     <GlobalStateProvider>
       <GlobalStyle whiteColor />
-      <SearchBar />
       <MainContainer>
-        <RouterProvider router={router} />
+        <BrowserRouter>
+          <SearchBar />
+          <Modal />
+          <Routes>
+            <Route path="/" Component={Home} />
+            <Route path="/search" Component={Search} />
+            <Route path="/favorites" Component={Favorites} />
+          </Routes>
+        </BrowserRouter>
       </MainContainer>
     </GlobalStateProvider>
   </React.StrictMode>
