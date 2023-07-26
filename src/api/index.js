@@ -18,3 +18,9 @@ export const searchCharacters = async (searchName) => {
 
   return request.data;
 };
+
+export const getCharacterComics = async (characterId) => {
+  const request = await axiosInstance.get(`/characters/${characterId}/comics`);
+  return request.data;
+};
+

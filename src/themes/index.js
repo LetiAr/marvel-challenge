@@ -6,5 +6,7 @@ export default {
       lightBg: "#ffffff",
       darkBg: "#f5f6f8",
       shadows: "rgb(0 0 0 / 14%)",
+      overlay: "rgb(0 0 0 / 70%)",
     },
   };
+  
