@@ -7,6 +7,7 @@ export const routes = {
 
 export const marvelComicUrlPattern =
   /^https:\/\/www\.marvel\.com\/comics\/issue\/([0-9]+)\/([-a-zA-Z0-9_]+)/;  
+
 export const PopularCharacters = [
     "Spider-Man",
     "Wolverine",
@@ -64,7 +65,7 @@ export const PopularCharacters = [
     "She-Hulk",
     "Black Widow",
     "Ghost Rider (Blaze)",
-    "Bucky Barnes",
+    "Bucky",
     "Captain Britain",
     "Union Jack",
     "Silver Sable",
