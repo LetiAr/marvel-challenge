@@ -42,7 +42,6 @@ export default function SearchInput({ className }) {
         marvelComicTitlePattern.test(e.target.value)
           ? routes.SEARCH_COMIC
           : routes.SEARCH_CHARACTERS,
-
       search: "?q=" + encodeURIComponent(e.target.value),
     });
   };

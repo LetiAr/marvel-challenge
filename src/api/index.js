@@ -24,7 +24,7 @@ export const getCharacterComics = async (characterId) => {
   return request.data;
 };
 
-export const ggetComicById = async (comicId) => {
+export const getComicById = async (comicId) => {
     const request = await axiosInstance.get(`/comics/${comicId}`);
     return request.data;
   };
