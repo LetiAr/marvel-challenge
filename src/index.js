@@ -25,10 +25,10 @@ const GlobalStyle = createGlobalStyle`
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <GlobalStateProvider>
+    <BrowserRouter>
+      <GlobalStateProvider>
       <GlobalStyle whiteColor />
-      <MainContainer>
-        <BrowserRouter>
+        <MainContainer>
           <SearchBar />
           <Modal />
           <Routes>
@@ -36,9 +36,9 @@ root.render(
             <Route path="/search" Component={Search} />
             <Route path="/favorites" Component={Favorites} />
           </Routes>
-        </BrowserRouter>
-      </MainContainer>
-    </GlobalStateProvider>
+        </MainContainer>
+      </GlobalStateProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

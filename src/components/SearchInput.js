@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 import FavFilter from "./FavFilter";
 import themes from "../themes";
-import { useContext, useEffect, useState } from "react";
-import { searchCharacters } from "../api";
+import { useContext } from "react";
 import { GlobalStateContext } from "../store";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: grid;
@@ -26,34 +25,22 @@ const SearchInput = styled.input`
 `;
 
 export default function ({ className }) {
-  const { setSearchResult } = useContext(GlobalStateContext);
+  const { query, setQuery } = useContext(GlobalStateContext);
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get("character") ?? "");
-
-  useEffect(() => {
-    const timer = setTimeout(async () => {
-      if (query) {
-        const result = await searchCharacters(query);
-        setSearchResult(result.data.results);
-        navigate({
-          pathname: "/search",
-          search: "?character=" + encodeURIComponent(query),
-        });
-      } else {
-        setSearchResult([]);
-      }
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [query]);
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+    navigate({
+      pathname: "/search",
+      search: "?character=" + encodeURIComponent(e.target.value),
+    });
+  };
 
   return (
     <Container className={className}>
       <BsSearch color={themes.colors.borders} />
       <SearchInput
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={handleSearch}
         type="search"
         placeholder="Buscar"
       />

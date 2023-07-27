@@ -1,8 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const GlobalStateContext = createContext();
 
 const GlobalStateProvider = ({ children }) => {
+  const [searchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("character") ?? "");
   const [searchResult, setSearchResult] = useState([]);
   const [favorites, setFavorites] = useState(() => {
     return JSON.parse(localStorage.getItem("favorites") ?? "[]");
@@ -32,6 +35,8 @@ const GlobalStateProvider = ({ children }) => {
   return (
     <GlobalStateContext.Provider
       value={{
+        query,
+        setQuery,
         searchResult,
         setSearchResult,
         favorites,
