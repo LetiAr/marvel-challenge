@@ -21,3 +21,8 @@ Esperamos unos minutos a que termine la instalación para el correcto funcionami
 Podemos corroborar el paso anterior observando si se creó la carpeta "node_modules".
 Para comprobar que el proyecto esta funcionando correctamente se debe ejecutar el comando "npm run start".
 Y automaticamente veremos que la aplicación se ejecuta en localHost puerto 3000.
+
+## Deploy
+
+El proyecto se encuentra desployado en Vercel.
+https://leticia-marvel.vercel.app/
