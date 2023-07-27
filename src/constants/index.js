@@ -1,8 +1,12 @@
 export const routes = {
     HOME: "/",
-    SEARCH_CHARACTERS: "/search",
+    SEARCH_CHARACTERS: "/characters",
+    SEARCH_COMIC: "/comic",
     FAVORITES: "/favorites",
   };
+
+export const marvelComicUrlPattern =
+  /^https:\/\/www\.marvel\.com\/comics\/issue\/([0-9]+)\/([-a-zA-Z0-9_]+)/;  
 export const PopularCharacters = [
     "Spider-Man",
     "Wolverine",

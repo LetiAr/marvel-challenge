@@ -8,10 +8,11 @@ import themes from "./themes";
 import { GlobalStateProvider } from "./store";
 import { MainContainer } from "./components/layout/MainContainer";
 import Home from "./views/Home";
-import Search from "./views/Search";
+import SearchCharacters from "./views/SearchCharacters";
 import Favorites from "./views/Favorites";
 import Modal from "./components/Modal";
 import { routes } from "./constants";
+import SearchComic from "./views/SearchComic";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -34,7 +35,11 @@ root.render(
           <Modal />
           <Routes>
             <Route path={routes.HOME} Component={Home} />
-            <Route path={routes.SEARCH_CHARACTERS} Component={Search} />
+            <Route
+              path={routes.SEARCH_CHARACTERS}
+              Component={SearchCharacters}
+            />
+            <Route path={routes.SEARCH_COMIC} Component={SearchComic} />
             <Route path={routes.FAVORITES} Component={Favorites} />
           </Routes>
         </MainContainer>

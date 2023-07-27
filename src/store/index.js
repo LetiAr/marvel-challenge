@@ -5,8 +5,9 @@ const GlobalStateContext = createContext();
 
 const GlobalStateProvider = ({ children }) => {
   const [searchParams] = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get("character") ?? "");
+  const [query, setQuery] = useState(searchParams.get("q") ?? "");
   const [searchResult, setSearchResult] = useState([]);
+  const [comicDetails, setComicDetails] = useState(null);
   const [favorites, setFavorites] = useState(() => {
     return JSON.parse(localStorage.getItem("favorites") ?? "[]");
   });
@@ -43,6 +44,8 @@ const GlobalStateProvider = ({ children }) => {
         addCharacterToFavorites,
         characterModal,
         setCharacterModal,
+        comicDetails,
+        setComicDetails,
       }}
     >
       {children}

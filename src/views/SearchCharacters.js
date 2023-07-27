@@ -4,7 +4,7 @@ import { CardsContainer } from "../components/layout/CardsContainer";
 import { GlobalStateContext } from "../store";
 import useCharacterSearch from "../hooks/useCharacterSearch";
 
-export default function Search() {
+export default function SearchCharacters() {
   const { searchResult, query } = useContext(GlobalStateContext);
   useCharacterSearch({ query });
   

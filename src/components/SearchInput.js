@@ -5,7 +5,7 @@ import themes from "../themes";
 import { useContext } from "react";
 import { GlobalStateContext } from "../store";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../constants";
+import { marvelComicUrlPattern, routes } from "../constants";
 
 const Container = styled.div`
   display: grid;
@@ -30,9 +30,13 @@ export default function ({ className }) {
   const navigate = useNavigate();
   const handleSearch = (e) => {
     setQuery(e.target.value);
+
+    /** Hago navigate de acuerdo a si busco un character o un comic */
     navigate({
-      pathname: routes.SEARCH_CHARACTERS,
-      search: "?character=" + encodeURIComponent(e.target.value),
+        pathname: marvelComicUrlPattern.test(e.target.value)
+        ? routes.SEARCH_COMIC
+        : routes.SEARCH_CHARACTERS,
+      search: "?q=" + encodeURIComponent(e.target.value),
     });
   };
 
