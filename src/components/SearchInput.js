@@ -5,7 +5,11 @@ import themes from "../themes";
 import { useContext } from "react";
 import { GlobalStateContext } from "../store";
 import { useNavigate } from "react-router-dom";
-import { marvelComicUrlPattern, routes } from "../constants";
+import {
+    marvelComicTitlePattern,
+    marvelComicUrlPattern,
+    routes,
+  } from "../constants";
 
 const Container = styled.div`
   display: grid;
@@ -33,9 +37,12 @@ export default function SearchInput({ className }) {
 
     /** Hago navigate de acuerdo a si busco un character o un comic */
     navigate({
-        pathname: marvelComicUrlPattern.test(e.target.value)
-        ? routes.SEARCH_COMIC
-        : routes.SEARCH_CHARACTERS,
+      pathname:
+        marvelComicUrlPattern.test(e.target.value) ||
+        marvelComicTitlePattern.test(e.target.value)
+          ? routes.SEARCH_COMIC
+          : routes.SEARCH_CHARACTERS,
+
       search: "?q=" + encodeURIComponent(e.target.value),
     });
   };

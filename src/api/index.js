@@ -24,7 +24,18 @@ export const getCharacterComics = async (characterId) => {
   return request.data;
 };
 
-export const getComic = async (comicId) => {
+export const ggetComicById = async (comicId) => {
     const request = await axiosInstance.get(`/comics/${comicId}`);
+    return request.data;
+  };
+
+export const getComicByTitle = async (comicTitle, comicYear, comicIssue) => {
+    const request = await axiosInstance.get(`/comics`, {
+      params: {
+        title: comicTitle,
+        startYear: comicYear,
+        issueNumber: comicIssue,
+      },
+    });
     return request.data;
   };

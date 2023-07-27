@@ -6,7 +6,7 @@ export default function SearchComic() {
   const { comicDetails, query } = useContext(GlobalStateContext);
   useComicSearch({ query });
 
-  if (comicDetails === null) return null;
+  if (!comicDetails) return null;
 
   return (
     <div>

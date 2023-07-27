@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { getComic } from "../api";
+import { getComicById, getComicByTitle } from "../api";
 import { GlobalStateContext } from "../store";
-import { marvelComicUrlPattern } from "../constants";
+import { marvelComicTitlePattern, marvelComicUrlPattern } from "../constants";
 
 export default function useComicSearch({ query }) {
   const { setComicDetails } = useContext(GlobalStateContext);
@@ -10,8 +10,20 @@ export default function useComicSearch({ query }) {
     const timer = setTimeout(async () => {
       if (query) {
         const comicId = query.match(marvelComicUrlPattern);
-        const result = await getComic(comicId[1]);
-        setComicDetails(result.data.results[0]);
+        if (comicId !== null) {
+            const result = await getComicById(comicId[1]);
+            setComicDetails(result.data.results[0]);
+          } else {
+            const comicData = query.match(marvelComicTitlePattern);
+            if (comicData !== null && comicData.length === 4) {
+              const result = await getComicByTitle(
+                comicData[1],
+                comicData[2],
+                comicData[3]
+              );
+              setComicDetails(result.data.results[0]);
+            }
+          }
       } else {
         setComicDetails([]);
       }

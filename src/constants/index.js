@@ -8,6 +8,8 @@ export const routes = {
 export const marvelComicUrlPattern =
   /^https:\/\/www\.marvel\.com\/comics\/issue\/([0-9]+)\/([-a-zA-Z0-9_]+)/;  
 
+export const marvelComicTitlePattern = /^(.*) \((\d+)\) #(\d+)$/;
+
 export const PopularCharacters = [
     "Spider-Man",
     "Wolverine",
