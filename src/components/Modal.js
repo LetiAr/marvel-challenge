@@ -61,7 +61,7 @@ const ComicLink = styled.a`
   overflow: auto;
 `;
 
-export default function () {
+export default function Modal() {
   const { characterModal, setCharacterModal } = useContext(GlobalStateContext);
   const [characterComics, setCharacterComics] = useState([]);
 
@@ -99,6 +99,7 @@ export default function () {
                 <article>
                   <Image
                     src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                    alt={comic.title}
                   />
                   <h2>{comic.title}</h2>
                   <p>{comic.description ?? "No description"}</p>

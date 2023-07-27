@@ -14,7 +14,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const SearchInput = styled.input`
+const StyledSearchInput = styled.input`
   display: block;
   width: 100%;
   border: 0;
@@ -25,7 +25,7 @@ const SearchInput = styled.input`
   }
 `;
 
-export default function ({ className }) {
+export default function SearchInput({ className }) {
   const { query, setQuery } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const handleSearch = (e) => {
@@ -43,7 +43,7 @@ export default function ({ className }) {
   return (
     <Container className={className}>
       <BsSearch color={themes.colors.borders} />
-      <SearchInput
+      <StyledSearchInput
         value={query}
         onChange={handleSearch}
         type="search"

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import themes from "../themes";
 import { routes } from "../constants";
 
-export default function () {
+export default function FavFilter() {
   const location = useLocation();
 const Star = location.pathname === routes.FAVORITES ? BsStarFill : BsStar;
 

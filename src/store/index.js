@@ -31,7 +31,7 @@ const GlobalStateProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites.length]);
+  }, [favorites]);
 
   return (
     <GlobalStateContext.Provider

@@ -11,7 +11,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default function ({ character }) {
+export default function AddToFavs({ character }) {
   const { favorites, addCharacterToFavorites } = useContext(GlobalStateContext);
 
   const isInFavIndex = favorites.findIndex((fav) => {

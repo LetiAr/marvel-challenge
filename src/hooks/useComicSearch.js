@@ -18,5 +18,5 @@ export default function useComicSearch({ query }) {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [query, setComicDetails]);
 }

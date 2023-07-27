@@ -14,6 +14,7 @@ export default function SearchComic() {
       <p>{comicDetails.description}</p>
       <img
         src={`${comicDetails.thumbnail.path}.${comicDetails.thumbnail.extension}`}
+        alt={comicDetails.title}
       />
     </div>
   );

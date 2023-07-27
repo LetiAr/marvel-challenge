@@ -16,5 +16,5 @@ export default function useCharacterSearch({ query }) {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [query, setSearchResult]);
 }
