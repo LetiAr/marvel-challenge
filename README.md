@@ -25,4 +25,6 @@ Y automaticamente veremos que la aplicación se ejecuta en localHost puerto 3000
 ## Deploy
 
 El proyecto se encuentra desployado en Vercel.
+La aplicación es totalmente responsive.
+
 https://leticia-marvel.vercel.app/
