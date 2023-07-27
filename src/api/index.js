@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://gateway.marvel.com/v1/public/",
+  baseURL: "https://gateway.marvel.com/v1/public/",
   params: {
     ts: "1690138897",
     apikey: "89a6c40864fecaa1c7fee6008db89aee",
