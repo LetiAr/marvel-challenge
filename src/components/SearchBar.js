@@ -3,6 +3,7 @@ import logo from "../assets/marvel.png";
 import SearchInput from "./SearchInput";
 import themes from "../themes";
 import { Link } from "react-router-dom";
+import { routes } from "../constants";
 
 const Container = styled.header`
   position: fixed;
@@ -35,7 +36,7 @@ const StyledSearchInput = styled(SearchInput)`
 function SearchBar() {
   return (
     <Container>
-      <Link to="/">
+      <Link to={routes.HOME}>
         <Logo src={logo} alt="Marvel Logo" />
       </Link>    
       <StyledSearchInput />

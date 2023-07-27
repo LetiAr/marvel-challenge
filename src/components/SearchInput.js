@@ -5,6 +5,7 @@ import themes from "../themes";
 import { useContext } from "react";
 import { GlobalStateContext } from "../store";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../constants";
 
 const Container = styled.div`
   display: grid;
@@ -30,7 +31,7 @@ export default function ({ className }) {
   const handleSearch = (e) => {
     setQuery(e.target.value);
     navigate({
-      pathname: "/search",
+      pathname: routes.SEARCH_CHARACTERS,
       search: "?character=" + encodeURIComponent(e.target.value),
     });
   };

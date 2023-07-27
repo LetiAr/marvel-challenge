@@ -1,3 +1,8 @@
+export const routes = {
+    HOME: "/",
+    SEARCH_CHARACTERS: "/search",
+    FAVORITES: "/favorites",
+  };
 export const PopularCharacters = [
     "Spider-Man",
     "Wolverine",

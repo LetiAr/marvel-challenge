@@ -11,6 +11,7 @@ import Home from "./views/Home";
 import Search from "./views/Search";
 import Favorites from "./views/Favorites";
 import Modal from "./components/Modal";
+import { routes } from "./constants";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -32,9 +33,9 @@ root.render(
           <SearchBar />
           <Modal />
           <Routes>
-            <Route path="/" Component={Home} />
-            <Route path="/search" Component={Search} />
-            <Route path="/favorites" Component={Favorites} />
+            <Route path={routes.HOME} Component={Home} />
+            <Route path={routes.SEARCH_CHARACTERS} Component={Search} />
+            <Route path={routes.FAVORITES} Component={Favorites} />
           </Routes>
         </MainContainer>
       </GlobalStateProvider>
